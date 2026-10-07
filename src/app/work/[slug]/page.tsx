@@ -90,20 +90,20 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </div>
       </Reveal>
 
-      <div className="container-x mt-28 grid gap-16 md:grid-cols-[1fr_2fr]">
+      <div className="container-x mt-20 grid gap-x-16 gap-y-4 sm:mt-28 md:grid-cols-[1fr_2fr] md:gap-y-16">
         <Reveal>
           <p className="eyebrow">The challenge</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">{p.challenge}</p>
+          <p className="font-display text-xl leading-snug tracking-tight sm:text-2xl md:text-3xl">{p.challenge}</p>
         </Reveal>
-        <Reveal>
+        <Reveal className="mt-10 md:mt-0">
           <p className="eyebrow">What we built</p>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="font-display text-2xl leading-snug tracking-tight md:text-3xl">{p.solution}</p>
+          <p className="font-display text-xl leading-snug tracking-tight sm:text-2xl md:text-3xl">{p.solution}</p>
         </Reveal>
-        <Reveal>
+        <Reveal className="mt-10 md:mt-0">
           <p className="eyebrow">Tech stack</p>
         </Reveal>
         <Reveal delay={0.1}>
@@ -117,7 +117,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </Reveal>
         {p.features && p.features.length > 0 && (
           <>
-            <Reveal>
+            <Reveal className="mt-10 md:mt-0">
               <p className="eyebrow">Key features</p>
             </Reveal>
             <Reveal delay={0.1}>
@@ -137,7 +137,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </div>
 
       {p.results && p.results.length > 0 && (
-        <section className="container-x mt-28">
+        <section className="container-x mt-20 sm:mt-28">
           <Reveal>
             <p className="eyebrow mb-8">Highlights</p>
           </Reveal>
@@ -145,7 +145,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             {p.results.map((r, i) => (
               <Reveal key={r.label} delay={i * 0.1}>
                 <div className="rounded-3xl border border-line bg-surface p-8">
-                  <p className="font-display text-gradient text-5xl font-semibold tracking-tight md:text-6xl">{r.value}</p>
+                  <p className="font-display text-gradient text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">{r.value}</p>
                   <p className="mt-3 text-muted">{r.label}</p>
                 </div>
               </Reveal>
@@ -157,7 +157,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <Link
         href={`/work/${next.slug}/`}
         data-cursor="Next"
-        className="group mt-32 block border-t border-line py-20 md:py-28"
+        className="group mt-24 block border-t border-line py-16 sm:mt-32 sm:py-20 md:py-28"
       >
         <div className="container-x">
           <p className="eyebrow">Next project</p>

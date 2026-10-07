@@ -31,7 +31,7 @@ export default function Hero() {
   const inView = useInView(ref, "0px");
 
   return (
-    <section id="top" ref={ref} className="relative isolate flex min-h-[100svh] items-center overflow-hidden">
+    <section id="top" ref={ref} className="relative isolate flex min-h-[100svh] items-end overflow-hidden hero-wide:items-center">
       <div className="absolute inset-0 -z-10">
         {quality === "off" && <FallbackOrbs />}
         {quality && quality !== "off" && (
@@ -49,7 +49,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent" />
       </div>
 
-      <div className="container-x pb-24 pt-32">
+      <div className="container-x pb-16 pt-28 hero-wide:pb-24 hero-wide:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-3"
+        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 hero-wide-tall:flex"
       >
         <span className="eyebrow text-[10px]">Scroll</span>
         <span className="relative h-12 w-px overflow-hidden bg-line">

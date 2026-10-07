@@ -10,7 +10,7 @@ export const site = {
 
   // TODO: replace with your real contact details
   email: "hello@codelyne.in",
-  whatsapp: "919999999999", // country code + number, digits only
+  whatsapp: "918303909018", // country code (91) + number, digits only
   location: "India · Working with clients worldwide",
 
   socials: [
@@ -74,12 +74,12 @@ export const processSteps = [
   },
 ];
 
-// TODO: update these with your real numbers
-export const metrics = [
-  { value: 25, suffix: "+", label: "Projects delivered" },
-  { value: 18, suffix: "+", label: "Happy clients" },
-  { value: 98, suffix: "%", label: "Lighthouse performance" },
-  { value: 3, suffix: "x", label: "Avg. faster load times" },
+// "What We Deliver" strip
+export const deliverables = [
+  { title: "Modern UI", text: "Clean, professional & business-focused designs" },
+  { title: "Responsive First", text: "Seamless experience across mobile, tablet & desktop" },
+  { title: "Full-Stack Solutions", text: "Frontend, backend, database & API integration" },
+  { title: "Built for Growth", text: "Scalable websites designed around your business goals" },
 ];
 
 // TODO: replace with real client testimonials before launch

@@ -4,7 +4,7 @@ import Services from "@/components/sections/Services";
 import Work from "@/components/sections/Work";
 import Process from "@/components/sections/Process";
 import Stack from "@/components/sections/Stack";
-import Metrics from "@/components/sections/Metrics";
+import Deliver from "@/components/sections/Deliver";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 
@@ -17,7 +17,7 @@ export default function Home() {
       <Work />
       <Process />
       <Stack />
-      <Metrics />
+      <Deliver />
       <Testimonials />
       <Contact />
     </main>

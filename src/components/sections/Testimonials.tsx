@@ -18,12 +18,12 @@ export default function Testimonials() {
   const t = testimonials[index];
 
   return (
-    <section className="relative py-28 md:py-40">
+    <section className="relative py-16 sm:py-20 md:py-24">
       <div className="container-x">
         <SectionHeading eyebrow="Client words" title="Trusted by the people we build for." />
 
         <div
-          className="relative mt-16 overflow-hidden rounded-[2rem] border border-line bg-surface p-8 md:p-16"
+          className="relative mt-12 overflow-hidden rounded-[2rem] border border-line bg-surface p-6 sm:mt-16 sm:p-8 md:p-16"
           onPointerEnter={() => setPaused(true)}
           onPointerLeave={() => setPaused(false)}
         >
@@ -41,7 +41,7 @@ export default function Testimonials() {
                 exit={{ opacity: 0, y: -24, filter: "blur(6px)" }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <blockquote className="font-display max-w-4xl text-2xl font-medium leading-snug tracking-tight md:text-4xl">
+                <blockquote className="font-display max-w-4xl text-xl font-medium leading-snug tracking-tight sm:text-2xl md:text-4xl">
                   “{t.quote}”
                 </blockquote>
                 <figcaption className="mt-8 flex items-center gap-4">

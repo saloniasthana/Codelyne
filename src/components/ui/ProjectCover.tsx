@@ -21,7 +21,8 @@ export default function ProjectCover({
       <img
         src={project.cover}
         alt={`${project.title} preview`}
-        className={`h-full w-full object-cover object-top ${className}`}
+        className={`h-full w-full object-cover ${className}`}
+        style={{ objectPosition: project.coverPosition ?? "center top" }}
         loading="lazy"
       />
     );

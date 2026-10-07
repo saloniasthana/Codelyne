@@ -13,6 +13,20 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // Lock page scroll while the mobile menu is open; close it if the screen grows to desktop
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    root.style.overflow = "hidden";
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const close = () => mq.matches && setOpen(false);
+    mq.addEventListener("change", close);
+    return () => {
+      root.style.overflow = "";
+      mq.removeEventListener("change", close);
+    };
+  }, [open]);
+
   useEffect(() => {
     let last = window.scrollY;
     const onScroll = () => {
@@ -43,7 +57,7 @@ export default function Navbar() {
             <Logo />
           </SectionLink>
 
-          <ul className="hidden items-center gap-1 md:flex">
+          <ul className="hidden items-center gap-1 lg:flex">
             {site.nav.map((item) => (
               <li key={item.href}>
                 <SectionLink
@@ -63,7 +77,7 @@ export default function Navbar() {
               <Magnetic>
                 <SectionLink
                   href="#contact"
-                  className="bg-fg text-bg inline-flex h-10 items-center gap-2 rounded-full px-5 text-sm font-medium transition hover:opacity-90"
+                  className="bg-fg text-bg inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition hover:opacity-90"
                 >
                   Start a project
                   <span aria-hidden>→</span>
@@ -74,7 +88,7 @@ export default function Navbar() {
               onClick={() => setOpen((o) => !o)}
               aria-label="Toggle menu"
               aria-expanded={open}
-              className="glass grid h-10 w-10 place-items-center rounded-full md:hidden"
+              className="glass grid h-10 w-10 place-items-center rounded-full lg:hidden"
             >
               <span className="relative block h-3 w-4">
                 <span className={`absolute left-0 h-px w-4 bg-fg transition-all ${open ? "top-1.5 rotate-45" : "top-0"}`} />
@@ -92,7 +106,7 @@ export default function Navbar() {
             animate={{ clipPath: "circle(150% at 100% 0%)" }}
             exit={{ clipPath: "circle(0% at 100% 0%)" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-center bg-bg px-8 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-center bg-bg px-8 lg:hidden"
           >
             <ul className="space-y-2">
               {site.nav.map((item, i) => (
@@ -105,7 +119,7 @@ export default function Navbar() {
                   <SectionLink
                     href={item.href as `#${string}`}
                     onNavigate={() => setOpen(false)}
-                    className="font-display text-5xl font-semibold tracking-tight"
+                    className="font-display text-4xl font-semibold tracking-tight sm:text-5xl"
                   >
                     {item.label}
                   </SectionLink>

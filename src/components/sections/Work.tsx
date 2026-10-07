@@ -32,7 +32,7 @@ export default function Work() {
   );
 
   return (
-    <section id="work" ref={root} className="relative py-28 md:py-40">
+    <section id="work" ref={root} className="relative py-16 sm:py-20 md:py-24">
       <div className="container-x">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
@@ -47,7 +47,7 @@ export default function Work() {
           </Reveal>
         </div>
 
-        <div className="mt-20 grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <div className="mt-14 grid gap-x-8 gap-y-16 md:grid-cols-2">
           {projects.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.1} className={i % 2 ? "md:mt-32" : ""}>
               <Link href={`/work/${p.slug}/`} data-cursor="View" className="block">

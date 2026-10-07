@@ -12,6 +12,8 @@ export type Project = {
   colors: [string, string];
   /** Optional image in /public, e.g. "/projects/fleetfix.jpg" */
   cover: string;
+  /** Optional CSS object-position for the cover, e.g. "left top" (default "center top") */
+  coverPosition?: string;
   /** Optional live link */
   url: string;
   role: string;

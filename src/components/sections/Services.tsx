@@ -16,7 +16,7 @@ const icons = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-28 md:py-40">
+    <section id="services" className="relative py-16 sm:py-20 md:py-24">
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-60" />
       <div className="container-x">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">

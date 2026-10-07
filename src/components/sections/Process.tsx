@@ -60,7 +60,7 @@ export default function Process() {
   );
 
   return (
-    <section id="process" ref={root} className="relative overflow-hidden py-28 lg:flex lg:h-screen lg:items-center lg:py-0">
+    <section id="process" ref={root} className="relative overflow-hidden py-16 sm:py-20 lg:flex lg:h-screen lg:items-center lg:py-0">
       <div ref={track} className="lg:flex lg:w-max lg:items-center lg:gap-24 lg:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] lg:pr-[20vw]">
         <div className="container-x lg:w-[30rem] lg:shrink-0 lg:px-0">
           <SectionHeading

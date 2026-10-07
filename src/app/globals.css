@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* Landscape screens ≥768px: hero text sits beside the 3D sphere instead of under it.
+   Keep in sync with `isWide` in HeroScene.tsx. */
+@custom-variant hero-wide (@media (min-width: 48rem) and (min-aspect-ratio: 11/10));
+@custom-variant hero-wide-tall (@media (min-width: 48rem) and (min-aspect-ratio: 11/10) and (min-height: 700px));
+
 /* ---------- Theme tokens ---------- */
 :root,
 [data-theme="dark"] {
@@ -50,6 +55,7 @@
 
 /* ---------- Base ---------- */
 html {
+  overflow-x: clip;
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
@@ -122,7 +128,7 @@ body {
     var(--bg)
   );
 }
-@media (width >= 48rem) {
+@media (min-width: 48rem) and (min-aspect-ratio: 11/10) {
   .hero-veil {
     background: linear-gradient(
       to right,

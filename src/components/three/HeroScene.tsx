@@ -41,6 +41,9 @@ const PALETTES: Record<"dark" | "light", Palette> = {
   },
 };
 
+/** Same rule as the `hero-wide` CSS variant in globals.css */
+const isWide = (w: number, h: number) => w >= 768 && w / h >= 1.1;
+
 // Shared mouse position in normalised [-1, 1] coords. Tracked on window so
 // the overlaid hero text doesn't block it.
 const mouse = { x: 0, y: 0 };
@@ -68,7 +71,7 @@ function NeuralSphere({ palette, count }: { palette: Palette; count: number }) {
   const group = useRef<THREE.Group>(null);
   const pulseGeo = useRef<THREE.BufferGeometry>(null);
   const dot = useDotTexture();
-  const { viewport } = useThree();
+  const { viewport, size } = useThree();
 
   // Nodes on a slightly noisy Fibonacci sphere + edges between near neighbours
   const { nodes, nodePositions, edgePositions, edges } = useMemo(() => {
@@ -124,10 +127,14 @@ function NeuralSphere({ palette, count }: { palette: Palette; count: number }) {
     // Follow the mouse, slowly spin, and drift away as the user scrolls
     g.rotation.y = THREE.MathUtils.damp(g.rotation.y, t * 0.08 + mouse.x * 0.5 + scroll * 1.2, 3, delta);
     g.rotation.x = THREE.MathUtils.damp(g.rotation.x, -mouse.y * 0.3 + scroll * 0.3, 3, delta);
-    const wide = viewport.width > 8;
-    g.position.x = THREE.MathUtils.damp(g.position.x, wide ? viewport.width * 0.25 : 0, 4, delta);
-    g.position.y = THREE.MathUtils.damp(g.position.y, (wide ? 0 : viewport.height * 0.3) + scroll * 1.6, 4, delta);
-    const s = (wide ? 1 : 0.65) * (1 - scroll * 0.15);
+    // Landscape: sphere on the right, sized so it clears the headline.
+    // Portrait (phones, upright tablets): sphere on top, text below it.
+    const wide = isWide(size.width, size.height);
+    const fit = wide ? THREE.MathUtils.clamp((viewport.width - 2) / 9, 0.62, 1) : 0.65;
+    const x = wide ? viewport.width / 2 - 2.2 * fit * 0.85 : 0;
+    g.position.x = THREE.MathUtils.damp(g.position.x, x, 4, delta);
+    g.position.y = THREE.MathUtils.damp(g.position.y, (wide ? 0 : viewport.height * 0.27) + scroll * 1.6, 4, delta);
+    const s = fit * (1 - scroll * 0.15);
     g.scale.setScalar(THREE.MathUtils.damp(g.scale.x, s, 4, delta));
 
     for (let i = 0; i < pulses.length; i++) {

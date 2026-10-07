@@ -8,10 +8,26 @@ import { Reveal } from "@/components/ui/Reveal";
 import Magnetic from "@/components/ui/Magnetic";
 
 const SERVICES = ["Website", "Web App", "E-commerce", "UI/UX", "Something else"];
-const BUDGETS = ["< ₹50k", "₹50k – 1.5L", "₹1.5L – 5L", "₹5L +"];
+const BUDGETS = ["Under ₹10K", "₹10K – ₹25K", "₹25K – ₹50K", "₹50K – ₹1L", "₹1L+"];
 const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "whatsapp" | "error";
+
+/** wa.me link that opens a chat with Codelyne, message already typed */
+const waLink = (text: string) => `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
+
+function enquiryText(data: FormData) {
+  return [
+    "Hi Codelyne! New project enquiry from the website:",
+    "",
+    `Name: ${data.get("name")}`,
+    `Email: ${data.get("email")}`,
+    `Service: ${data.get("service")}`,
+    `Budget: ${data.get("budget")}`,
+    "",
+    `${data.get("message")}`,
+  ].join("\n");
+}
 
 function Chips({
   name,
@@ -44,6 +60,13 @@ function Chips({
   );
 }
 
+/** New tab on desktop (keeps the site open); falls back to same tab if popups are blocked */
+function openWhatsApp(url: string) {
+  const w = window.open(url, "_blank");
+  if (w) w.opener = null;
+  else window.location.href = url;
+}
+
 const field =
   "w-full border-b border-line bg-transparent py-3 text-lg outline-none transition-colors placeholder:text-muted/60 focus:border-c2";
 
@@ -51,6 +74,7 @@ export default function Contact() {
   const [service, setService] = useState(SERVICES[0]);
   const [budget, setBudget] = useState(BUDGETS[1]);
   const [status, setStatus] = useState<Status>("idle");
+  const [waUrl, setWaUrl] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,12 +83,13 @@ export default function Contact() {
     data.set("service", service);
     data.set("budget", budget);
 
-    // No Web3Forms key yet → open the visitor's email app instead
+    const url = waLink(enquiryText(data));
+    setWaUrl(url);
+
+    // No Web3Forms key → send the enquiry to Codelyne's WhatsApp, already typed out
     if (!ACCESS_KEY) {
-      const body = `Hi Codelyne,\n\n${data.get("message")}\n\nService: ${service}\nBudget: ${budget}\n\n— ${data.get("name")} (${data.get("email")})`;
-      window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
-        `New project enquiry from ${data.get("name")}`,
-      )}&body=${encodeURIComponent(body)}`;
+      openWhatsApp(url);
+      setStatus("whatsapp");
       return;
     }
 
@@ -83,10 +108,10 @@ export default function Contact() {
     }
   }
 
-  const whatsapp = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hi Codelyne! I'd like to book a call about a project.")}`;
+  const whatsapp = waLink("Hi Codelyne! I'd like to book a call about a project.");
 
   return (
-    <section id="contact" className="relative overflow-hidden py-28 md:py-40">
+    <section id="contact" className="relative overflow-hidden py-16 sm:py-20 md:py-24">
       <div className="absolute left-1/2 top-0 -z-10 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-c2/15 blur-[140px]" />
       <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.2fr]">
         <div>
@@ -149,6 +174,40 @@ export default function Contact() {
                   </button>
                 </motion.div>
               )}
+              {status === "whatsapp" && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-[2rem] bg-surface p-8 text-center sm:p-10"
+                >
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", delay: 0.1 }}
+                    className="grid h-16 w-16 place-items-center rounded-full bg-[#25D366] text-white"
+                  >
+                    <WhatsAppIcon className="h-8 w-8" />
+                  </motion.span>
+                  <h3 className="font-display mt-6 text-3xl font-semibold">Almost done!</h3>
+                  <p className="mt-3 max-w-sm text-muted">
+                    We&apos;ve opened WhatsApp with your enquiry ready. Just tap <strong className="text-fg">Send</strong> and
+                    we&apos;ll get back to you within one working day.
+                  </p>
+                  <a
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-medium text-white transition hover:opacity-90"
+                  >
+                    <WhatsAppIcon className="h-4 w-4" />
+                    WhatsApp didn&apos;t open? Tap here
+                  </a>
+                  <button type="button" onClick={() => setStatus("idle")} className="mt-5 text-sm text-c2 underline-offset-4 hover:underline">
+                    Back to the form
+                  </button>
+                </motion.div>
+              )}
             </AnimatePresence>
 
             {/* honeypot for bots */}
@@ -192,13 +251,19 @@ export default function Contact() {
                     className="group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full px-8 font-medium text-white disabled:opacity-60"
                   >
                     <span className="bg-gradient-line absolute inset-0 transition-transform duration-500 group-hover:scale-110" />
-                    <span className="relative">{status === "sending" ? "Sending…" : "Send message"}</span>
+                    {!ACCESS_KEY && <WhatsAppIcon className="relative h-5 w-5" />}
+                    <span className="relative">
+                      {status === "sending" ? "Sending…" : ACCESS_KEY ? "Send message" : "Send via WhatsApp"}
+                    </span>
                     <span className="relative transition-transform group-hover:translate-x-1">→</span>
                   </button>
                 </Magnetic>
                 {status === "error" && (
                   <p className="text-sm text-red-400">
-                    Something went wrong. Please email us at {site.email}.
+                    Couldn&apos;t send right now.{" "}
+                    <a href={waUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+                      Send it on WhatsApp instead
+                    </a>
                   </p>
                 )}
               </div>
@@ -207,5 +272,13 @@ export default function Contact() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function WhatsAppIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9 1.8 1.8 2.9 4.3 2.9 6.9 0 5.4-4.4 9.8-9.8 9.8zm8.4-18.2C18.1 1.3 15.2.1 12 .1 5.5.1.1 5.4.1 12c0 2.1.5 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.5-8.4z" />
+    </svg>
   );
 }

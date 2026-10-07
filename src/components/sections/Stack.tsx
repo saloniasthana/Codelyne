@@ -17,7 +17,7 @@ export default function Stack() {
   const inView = useInView(box);
 
   return (
-    <section id="stack" className="relative py-28 md:py-40">
+    <section id="stack" className="relative py-16 sm:py-20 md:py-24">
       <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.3fr]">
         <div>
           <SectionHeading
@@ -26,7 +26,7 @@ export default function Stack() {
             text="We build on proven, open technology — so your product is fast today and easy to grow tomorrow. Hover a tool to see why we use it."
           />
           <Reveal delay={0.2}>
-            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
               {techStack.slice(0, 6).map((t) => (
                 <li key={t.name} className="rounded-2xl border border-line bg-surface px-4 py-3">
                   <p className="text-sm font-medium">{t.name}</p>

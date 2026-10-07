@@ -28,10 +28,15 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", images: ["/og.png"] },
   icons: {
+    // Search engines want square icons in multiples of 48px; these are the
+    // logo mark on a white tile, padded so Google's circular crop never clips it
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/search-icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/search-icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/search-icon-144.png", sizes: "144x144", type: "image/png" },
+      { url: "/search-icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
@@ -47,7 +52,7 @@ const jsonLd = {
       "@id": `${site.url}/#organization`,
       name: site.name,
       url: site.url,
-      logo: `${site.url}/icon-512.png`,
+      logo: `${site.url}/search-icon-512.png`,
       email: site.email,
       description: site.description,
       sameAs: site.socials.map((s) => s.href),

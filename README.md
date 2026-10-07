@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Codelyne — studio portfolio
 
 Animated 3D portfolio for Codelyne, built with Next.js (static export), Tailwind CSS,
@@ -32,6 +31,3 @@ scripts/flatten-prefetch.mjs   post-build fix so link prefetching doesn't 404 on
 - Phones and low-core devices get fewer particles and no post-processing. With reduced motion
   or no WebGL, a CSS gradient fallback is shown instead.
 - 3D canvases pause rendering when scrolled off screen.
-=======
-# Codelyne
->>>>>>> dadae2e4a0889bbd89a440d4ff24e64b04f64fe5

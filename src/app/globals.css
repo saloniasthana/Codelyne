@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Theme tokens ---------- */
+:root,
+[data-theme="dark"] {
+  --bg: #06070c;
+  --bg-soft: #0c0e17;
+  --surface: #10131e;
+  --border: rgb(255 255 255 / 0.08);
+  --fg: #eceef6;
+  --muted: #8b91a8;
+  --c1: #2de2c8; /* teal */
+  --c2: #5b8cff; /* blue */
+  --c3: #a26bff; /* violet */
+  --glow: rgb(91 140 255 / 0.35);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f5f6fb;
+  --bg-soft: #eceef6;
+  --surface: #ffffff;
+  --border: rgb(10 14 30 / 0.09);
+  --fg: #0b0e18;
+  --muted: #5a6078;
+  --c1: #0fae9a;
+  --c2: #3466ff;
+  --c3: #7b3dff;
+  --glow: rgb(52 102 255 / 0.18);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-line: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-c1: var(--c1);
+  --color-c2: var(--c2);
+  --color-c3: var(--c3);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+/* ---------- Base ---------- */
+html {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--c2);
+  color: #fff;
+}
+
+/* ---------- Utilities ---------- */
+@utility container-x {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--c1), var(--c2) 45%, var(--c3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-line {
+  background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3));
+}
+
+@utility glass {
+  background: color-mix(in srgb, var(--surface) 65%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--border);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Subtle grid backdrop used behind sections */
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+/* Keeps hero text readable over the 3D scene */
+.hero-veil {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bg) 20%, transparent),
+    color-mix(in srgb, var(--bg) 75%, transparent) 40%,
+    var(--bg)
+  );
+}
+@media (width >= 48rem) {
+  .hero-veil {
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--bg) 85%, transparent),
+      color-mix(in srgb, var(--bg) 35%, transparent) 45%,
+      transparent 70%
+    );
+  }
+}
+
+/* Infinite marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Floating orb used when 3D is disabled */
+@keyframes float-orb {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(0, -18px, 0) scale(1.04); }
+}
+.animate-orb {
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+/* Hide native cursor only when the custom one is active */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

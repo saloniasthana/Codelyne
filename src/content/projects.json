@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "vahanhelp",
+    "title": "VahanHelp",
+    "client": "VahanHelp",
+    "year": "",
+    "category": "Web Platform",
+    "summary": "A digital automotive service platform that makes challan payments, RC transfer and RTO services simple, fast and transparent.",
+    "colors": ["#328BF0", "#facc15"],
+    "cover": "/projects/vahanhelp.jpg",
+    "url": "https://www.vahanhelp.in/",
+    "role": "Design & development",
+    "stack": ["React", "Vite", "Tailwind CSS", "React Router", "Firebase", "Razorpay", "EmailJS", "AWS CloudFront"],
+    "challenge": "Vehicle documentation and RTO processes are slow and confusing for most vehicle owners — from checking and paying traffic challans to transferring an RC — with little clarity on what each service involves or costs.",
+    "solution": "We built a fast, user-friendly platform that brings vehicle services, challan checking and payment, Parivahan Mitra services and RTO assistance together in one place, with transparent service information, online payments and quick support via WhatsApp.",
+    "features": [
+      "Traffic challan check & online payment",
+      "RC transfer & RTO assistance",
+      "Parivahan Mitra services",
+      "Transparent service & pricing pages",
+      "Secure online payments with Razorpay",
+      "User login & enquiry handling",
+      "WhatsApp support integration",
+      "Mobile-first, SEO-friendly pages"
+    ],
+    "results": [
+      { "value": "30k+", "label": "customers served on the platform" },
+      { "value": "4.9★", "label": "customer rating" },
+      { "value": "Pan-India", "label": "RTO & RC transfer support" }
+    ]
+  },
+  {
+    "slug": "pink-vila-restaurant",
+    "title": "Pink Vila",
+    "client": "Pink Vila Restaurant, Jaunpur",
+    "year": "",
+    "category": "Restaurant Website",
+    "summary": "A modern, responsive website for a family restaurant in Jaunpur — menu, ambience, reviews and table reservations in one place.",
+    "colors": ["#d85f89", "#a83d64"],
+    "cover": "/projects/pink-vila.jpg",
+    "url": "https://pink-villa-seven.vercel.app/",
+    "role": "Design & development",
+    "stack": ["React", "Vite", "Tailwind CSS", "React Router", "Google Maps", "Vercel"],
+    "challenge": "Pink Vila needed an online home that captures its signature pink-themed ambience and lets customers explore the full menu, find the restaurant and book a table without having to call first.",
+    "solution": "We designed and built an elegant, mobile-responsive website with a complete digital menu, featured dishes, a food and ambience gallery, customer reviews, Google Maps directions, one-tap call and WhatsApp, and a table reservation request flow.",
+    "features": [
+      "Complete digital menu with categories & prices",
+      "Featured dishes & food gallery",
+      "About us & restaurant information",
+      "Customer reviews & ratings",
+      "Google Maps location & directions",
+      "Call & WhatsApp integration",
+      "Table reservation requests",
+      "Social media integration"
+    ],
+    "results": [
+      { "value": "4.8★", "label": "rating from 1,216+ Google reviews" },
+      { "value": "1 tap", "label": "to call, WhatsApp or get directions" },
+      { "value": "100%", "label": "mobile-responsive design" }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "Codelyne",
+  "short_name": "Codelyne",
+  "description": "Codelyne transforms business ideas into modern websites, web applications and digital solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06070c",
+  "theme_color": "#1D68F7",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

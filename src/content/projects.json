@@ -58,5 +58,61 @@
       { "value": "1 tap", "label": "to call, WhatsApp or get directions" },
       { "value": "100%", "label": "mobile-responsive design" }
     ]
+  },
+  {
+    "slug": "the-olive-table",
+    "title": "The Olive Table",
+    "client": "The Olive Table, Jaunpur",
+    "year": "",
+    "category": "Restaurant & Hospitality",
+    "summary": "A modern, elegant restaurant website with a premium sage-green and cream aesthetic — menu, gallery, reviews and table reservations in one place.",
+    "colors": ["#56704a", "#c9d8bf"],
+    "cover": "/projects/the-olive-table.jpg",
+    "url": "https://the-olive-table-omega.vercel.app/",
+    "role": "Design & development",
+    "stack": ["React", "React Router", "Tailwind CSS", "Google Maps", "Vercel"],
+    "challenge": "The Olive Table needed an online presence that matches its calm, refined dining experience — one that lets guests explore the menu, see the food and interiors, and request a table easily from any device.",
+    "solution": "We designed and developed a modern, elegant restaurant website with a premium sage-green and cream aesthetic. It features an interactive digital menu, a food and interior gallery, customer reviews, restaurant information and table reservation requests — built with a focus on responsive design, intuitive navigation and a seamless experience across desktop and mobile.",
+    "features": [
+      "Elegant, responsive UI/UX design",
+      "Interactive digital menu",
+      "Food & interior gallery",
+      "Customer reviews & ratings",
+      "Restaurant information & location",
+      "Table reservation requests",
+      "One-tap call, WhatsApp & directions",
+      "Mobile-friendly navigation"
+    ],
+    "results": [
+      { "value": "4.3★", "label": "rating from 303+ Google reviews" },
+      { "value": "1 tap", "label": "to call, WhatsApp or get directions" },
+      { "value": "100%", "label": "mobile-responsive design" }
+    ]
+  },
+  {
+    "slug": "veloura",
+    "title": "Veloura",
+    "client": "Veloura",
+    "year": "",
+    "category": "Luxury Fashion E-commerce",
+    "summary": "A premium fashion e-commerce website delivering an elegant, seamless online shopping experience for a modern luxury brand.",
+    "colors": ["#8a6f55", "#e9e1d6"],
+    "cover": "/projects/veloura.jpg",
+    "url": "https://veloura-nine-iota.vercel.app/",
+    "role": "Design & development",
+    "stack": ["Next.js", "React", "Tailwind CSS", "Lucide Icons", "Vercel"],
+    "challenge": "A modern luxury fashion brand needed a digital storefront that feels as refined as its collections — presenting products with sophistication while keeping shopping simple and seamless.",
+    "solution": "We designed and developed Veloura, a premium fashion e-commerce website with curated collections of menswear, womenswear and accessories. Minimalist aesthetics meet sophisticated product presentation, with best-selling products, a brand story section, newsletter subscriptions, and dedicated shopping and customer support pages.",
+    "features": [
+      "Curated menswear, womenswear & accessories collections",
+      "Minimalist, sophisticated product presentation",
+      "Best-selling products showcase",
+      "Brand story section",
+      "Newsletter subscriptions",
+      "Dedicated shop & customer support pages",
+      "Search, wishlist & shopping cart",
+      "Fully responsive storefront"
+    ],
+    "results": []
   }
 ]

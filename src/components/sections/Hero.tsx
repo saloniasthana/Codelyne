@@ -67,9 +67,9 @@ export default function Hero() {
           as="h1"
           immediate
           stagger={0.08}
-          text="Where ideas connect to code."
-          className="font-display max-w-4xl text-[clamp(2.75rem,8vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.04em]"
-          wordClassName={(w) => (w === "connect" || w === "code." ? "text-gradient" : "")}
+          text="Websites That Help Your Business Grow."
+          className="font-display max-w-[13ch] text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[1.02] tracking-[-0.035em]"
+          wordClassName={(w) => (w === "Grow." ? "text-gradient" : "")}
         />
 
         <motion.p
@@ -78,8 +78,8 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.6, ease }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted md:text-xl"
         >
-          Codelyne turns business ideas into modern websites, web applications and digital solutions —
-          designed with care and engineered to perform.
+          We build modern, responsive websites and web applications that help businesses showcase their
+          services, build trust, and connect with customers.
         </motion.p>
 
         <motion.div
@@ -94,7 +94,7 @@ export default function Hero() {
               className="group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full px-8 font-medium text-white shadow-[0_10px_40px_-10px_var(--glow)]"
             >
               <span className="bg-gradient-line absolute inset-0 transition-transform duration-500 group-hover:scale-110" />
-              <span className="relative">Start a project</span>
+              <span className="relative">Discuss Your Project</span>
               <span className="relative transition-transform duration-300 group-hover:translate-x-1">→</span>
             </SectionLink>
           </Magnetic>
@@ -103,7 +103,7 @@ export default function Hero() {
               href="#work"
               className="glass inline-flex h-14 items-center gap-2 rounded-full px-8 font-medium transition hover:border-c2/50"
             >
-              See our work
+              View Our Work
             </SectionLink>
           </Magnetic>
         </motion.div>

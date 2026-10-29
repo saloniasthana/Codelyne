@@ -82,25 +82,23 @@ export const deliverables = [
   { title: "Built for Growth", text: "Scalable websites designed around your business goals" },
 ];
 
-// TODO: replace with real client testimonials before launch
-export const testimonials = [
+// "Why Choose Codelyne?" section — how we work, no claims we can't back up
+export const whyChoose = [
   {
-    quote:
-      "Codelyne understood what we needed before we could fully explain it. The new site loads instantly and our enquiries doubled within two months.",
-    name: "Client Name",
-    role: "Founder, Company",
+    title: "Clear communication",
+    text: "Regular progress updates and straight answers, so you always know where your project stands.",
   },
   {
-    quote:
-      "Clear communication, weekly demos and zero surprises at launch. Our team actually enjoys using the dashboard they built.",
-    name: "Client Name",
-    role: "Operations Head, Company",
+    title: "Customized solutions",
+    text: "Every project is planned around your business, audience and goals — not squeezed into a template.",
   },
   {
-    quote:
-      "They took a rough idea on a whiteboard and turned it into a product our customers pay for. Highly recommended.",
-    name: "Client Name",
-    role: "CEO, Startup",
+    title: "Responsive by design",
+    text: "Layouts built and checked for phones, tablets and desktops, so every visitor gets a smooth experience.",
+  },
+  {
+    title: "Project-focused development",
+    text: "Clean code and the features that matter to your project, delivered as a launch-ready result.",
   },
 ];
 

@@ -5,7 +5,7 @@ import Work from "@/components/sections/Work";
 import Process from "@/components/sections/Process";
 import Stack from "@/components/sections/Stack";
 import Deliver from "@/components/sections/Deliver";
-import Testimonials from "@/components/sections/Testimonials";
+import WhyChoose from "@/components/sections/WhyChoose";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <Process />
       <Stack />
       <Deliver />
-      <Testimonials />
+      <WhyChoose />
       <Contact />
     </main>
   );

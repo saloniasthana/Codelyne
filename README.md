@@ -18,7 +18,7 @@ npm start          # preview ./out locally
 src/
   app/                 layout, home page, /work/[slug] case studies, 404
   components/
-    sections/          Hero, Services, Work, Process, Stack, Metrics, Testimonials, Contact
+    sections/          Hero, Services, Work, Process, Stack, Deliver, WhyChoose, Contact
     three/             HeroScene (neural sphere), OrbitScene (tech orbit), device-quality checks
     ui/                cursor, magnetic button, tilt card, text reveal, logo, theme toggle
   content/             site.ts + projects.json  ← edit these

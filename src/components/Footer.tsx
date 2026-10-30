@@ -6,7 +6,6 @@ import { services, site } from "@/content/site";
 import { useApp } from "@/components/Providers";
 import { use3DQuality, useInView } from "@/components/three/useWebGL";
 import Logo from "@/components/ui/Logo";
-import Magnetic from "@/components/ui/Magnetic";
 import SectionLink from "@/components/ui/SectionLink";
 
 // Physics + 3D are only downloaded once the visitor scrolls near the footer
@@ -60,43 +59,7 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-line">
-      {/* Call-to-action strip */}
       <div className="container-x">
-        <div className="relative mt-16 overflow-hidden rounded-[2rem] border border-line bg-surface px-6 py-10 sm:px-10 md:mt-20 md:px-14 md:py-14 lg:flex lg:items-center lg:justify-between lg:gap-10">
-          <div aria-hidden className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-c2/20 blur-[90px]" />
-          <div className="relative">
-            <p className="eyebrow">Let&apos;s work together</p>
-            <h2 className="font-display mt-4 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.03em] sm:text-4xl md:text-5xl">
-              Have a project in mind?
-            </h2>
-            <p className="mt-4 max-w-lg text-muted">
-              Tell us what you&apos;re planning — we&apos;ll help you shape it into a website that fits your business.
-            </p>
-          </div>
-          <div className="relative mt-8 flex flex-wrap gap-3 lg:mt-0 lg:shrink-0">
-            <Magnetic>
-              <SectionLink
-                href="#contact"
-                className="group relative inline-flex h-14 items-center gap-3 overflow-hidden rounded-full px-8 font-medium text-white shadow-[0_10px_40px_-10px_var(--glow)]"
-              >
-                <span className="bg-gradient-line absolute inset-0 transition-transform duration-500 group-hover:scale-110" />
-                <span className="relative">Discuss Your Project</span>
-                <span className="relative transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </SectionLink>
-            </Magnetic>
-            <Magnetic>
-              <a
-                href={whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass inline-flex h-14 items-center gap-2 rounded-full px-7 font-medium transition hover:border-c2/50"
-              >
-                Chat on WhatsApp ↗
-              </a>
-            </Magnetic>
-          </div>
-        </div>
-
         {/* Link columns */}
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr_1.3fr]">
           <div>

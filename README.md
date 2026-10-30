@@ -4,14 +4,6 @@ Animated 3D portfolio for Codelyne, built with Next.js (static export), Tailwind
 React Three Fiber, GSAP ScrollTrigger, Motion and Lenis. Everything is free and open source;
 there's no backend or paid API.
 
-## Run it
-
-```bash
-npm install
-npm run dev        # http://localhost:3000
-npm run build      # static site in ./out
-npm start          # preview ./out locally
-```
 ## Structure
 
 ```

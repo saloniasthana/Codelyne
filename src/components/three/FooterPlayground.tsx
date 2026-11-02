@@ -10,6 +10,7 @@ import {
   InstancedRigidBodies,
   Physics,
   RigidBody,
+  useRapier,
   type InstancedRigidBodyProps,
   type RapierRigidBody,
 } from "@react-three/rapier";
@@ -26,6 +27,9 @@ const PUSHER_RADIUS = 1.5;
 const PUSHER_MAX_SPEED = 45; // world units / second — keeps the pusher from tunnelling into the pile
 const MAX_BODY_SPEED = 32; // safety cap so nothing can be flung out of view
 const FAR_AWAY = new THREE.Vector3(0, -200, 0);
+// Hidden warm-up: simulate this many physics steps (1/60 s each = 5 s) before the
+// pile is shown, so visitors see it already settled instead of watching it fall.
+const WARMUP_STEPS = 300;
 
 function Walls({ w, h }: { w: number; h: number }) {
   // Tall side walls so shapes flicked upward still land back in view
@@ -92,12 +96,15 @@ function Scene({
   theme,
   quality,
   pointer,
+  onSettled,
 }: {
   theme: "dark" | "light";
   quality: Exclude<Quality, "off">;
   pointer: React.RefObject<PointerState>;
+  onSettled: () => void;
 }) {
   const { viewport, camera } = useThree();
+  const { world } = useRapier();
   const w = viewport.width;
   const h = viewport.height;
   const shadows = quality === "high";
@@ -118,7 +125,8 @@ function Scene({
   // Split as evenly as possible across the shape types (e.g. 250 → 42,42,42,42,41,41)
   const counts = shapes.map((_, k) => Math.floor(total / shapes.length) + (k < total % shapes.length ? 1 : 0));
 
-  // Starting positions: scattered above the top edge so they rain down when the footer appears
+  // Starting positions: a loose column just above the floor. The hidden warm-up
+  // lets them drop the short distance and settle before anyone sees them.
   const [layout] = useState(() => {
     const rand = seeded(7);
     return shapes.map((kind, k) =>
@@ -126,7 +134,7 @@ function Scene({
         key: `${kind.name}-${i}`,
         position: [
           (rand() - 0.5) * (initial.w - 2),
-          initial.h / 2 + 2 + rand() * initial.h * 2.2,
+          -initial.h / 2 + 1.5 + rand() * initial.h * 2.2,
           (rand() - 0.5) * (DEPTH * 2 - 1.2),
         ],
         rotation: [rand() * Math.PI, rand() * Math.PI, rand() * Math.PI],
@@ -163,7 +171,20 @@ function Scene({
   const target = useMemo(() => new THREE.Vector3(), []);
   const current = useMemo(() => new THREE.Vector3(), []);
 
+  // Warm-up progress (counted in physics steps); spread over several frames so
+  // the page never freezes, and kept smaller per frame on weaker devices
+  const warmed = useRef(0);
+  const stepsPerFrame = quality === "high" ? 15 : 6;
+
   useFrame((_, delta) => {
+    if (warmed.current < WARMUP_STEPS) {
+      world.timestep = 1 / 60;
+      const n = Math.min(stepsPerFrame, WARMUP_STEPS - warmed.current);
+      for (let i = 0; i < n; i++) world.step();
+      warmed.current += n;
+      if (warmed.current >= WARMUP_STEPS) onSettled();
+      return;
+    }
     const p = pointer.current;
     const body = pusher.current;
     if (!body) return;
@@ -279,6 +300,9 @@ export default function FooterPlayground({
 }) {
   const pointer = useRef<PointerState>({ x: 0, y: 0, inside: false, burst: false });
   const box = useRef<HTMLDivElement>(null);
+  // Stays hidden (and keeps simulating even off screen) until the pile has settled
+  const [settled, setSettled] = useState(false);
+  const running = active || !settled;
 
   const update = (e: React.PointerEvent) => {
     const r = box.current!.getBoundingClientRect();
@@ -290,7 +314,7 @@ export default function FooterPlayground({
   return (
     <div
       ref={box}
-      className="absolute inset-0 touch-pan-y"
+      className={`absolute inset-0 touch-pan-y ${settled ? "opacity-100" : "opacity-0"}`}
       onPointerMove={update}
       onPointerEnter={update}
       onPointerDown={(e) => {
@@ -304,7 +328,7 @@ export default function FooterPlayground({
         shadows={quality === "high"}
         camera={{ position: [0, 0, 30], fov: 30 }}
         dpr={[1, quality === "high" ? 1.75 : 1.25]}
-        frameloop={active ? "always" : "never"}
+        frameloop={running ? "always" : "never"}
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
         style={{ pointerEvents: "none" }}
       >
@@ -327,8 +351,8 @@ export default function FooterPlayground({
         </Environment>
 
         <Suspense fallback={null}>
-          <Physics gravity={[0, -28, 0]} paused={!active}>
-            <Scene theme={theme} quality={quality} pointer={pointer} />
+          <Physics gravity={[0, -28, 0]} paused={!running}>
+            <Scene theme={theme} quality={quality} pointer={pointer} onSettled={() => setSettled(true)} />
           </Physics>
         </Suspense>
       </Canvas>

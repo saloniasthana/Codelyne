@@ -37,8 +37,8 @@ export default function Work() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading
             eyebrow="Selected work"
-            title="Client projects, built to perform."
-            text="A few of the products we've designed and engineered. Each one started as an idea in a client's head."
+            title="Projects, built to perform."
+            text="A few of the products I've designed and engineered — concept builds and work shipped on the job, each clearly labelled."
           />
           <Reveal delay={0.2}>
             <span className="font-mono text-sm text-muted">

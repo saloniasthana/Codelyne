@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getNextProject, getProject, projects } from "@/lib/projects";
+import { clientFactLabel, getNextProject, getProject, projects, projectTypeLabel } from "@/lib/projects";
 import ProjectCover from "@/components/ui/ProjectCover";
 import { Reveal, SplitText } from "@/components/ui/Reveal";
 import SectionLink from "@/components/ui/SectionLink";
@@ -25,10 +25,10 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   const next = getNextProject(slug);
 
   const facts = [
-    { label: "Client", value: p.client },
+    { label: clientFactLabel[p.type], value: p.client },
     { label: "Year", value: p.year },
     { label: "Service", value: p.category },
-    { label: "Our role", value: p.role },
+    { label: "My role", value: p.role },
   ].filter((f) => f.value);
 
   return (
@@ -38,6 +38,11 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <SectionLink href="#work" className="eyebrow inline-flex items-center gap-2 transition-colors hover:text-fg">
             ← All work
           </SectionLink>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <span className="glass mt-8 inline-block rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-wider">
+            {projectTypeLabel[p.type]}
+          </span>
         </Reveal>
         <SplitText
           as="h1"
@@ -54,7 +59,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               rel="noopener noreferrer"
               className="bg-fg text-bg mt-8 inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-medium transition hover:opacity-90"
             >
-              Visit live site ↗
+              {p.type === "demo" ? "View live demo ↗" : "Visit live site ↗"}
             </a>
           )}
         </Reveal>
@@ -98,7 +103,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <p className="font-display text-xl leading-snug tracking-tight sm:text-2xl md:text-3xl">{p.challenge}</p>
         </Reveal>
         <Reveal className="mt-10 md:mt-0">
-          <p className="eyebrow">What we built</p>
+          <p className="eyebrow">What I built</p>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="font-display text-xl leading-snug tracking-tight sm:text-2xl md:text-3xl">{p.solution}</p>

@@ -21,12 +21,12 @@ export default function Services() {
       <div className="container-x">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <SectionHeading
-            eyebrow="What we do"
+            eyebrow="What I do"
             title="Everything between the idea and the launch."
           />
           <Reveal delay={0.2} className="max-w-sm">
             <p className="text-muted">
-              One team for strategy, design and engineering — so nothing gets lost in translation between
+              One person handling strategy, design and engineering — so nothing gets lost in translation between
               your vision and the final product.
             </p>
           </Reveal>

@@ -64,7 +64,7 @@ export default function Process() {
       <div ref={track} className="lg:flex lg:w-max lg:items-center lg:gap-24 lg:pl-[max(2.5rem,calc((100vw-80rem)/2+2.5rem))] lg:pr-[20vw]">
         <div className="container-x lg:w-[30rem] lg:shrink-0 lg:px-0">
           <SectionHeading
-            eyebrow="How we work"
+            eyebrow="How I work"
             title="A clear line from idea to launch."
             text="Four steps, no black boxes. You see progress every week and always know what's next."
           />

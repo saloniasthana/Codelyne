@@ -2,17 +2,30 @@
   {
     "slug": "vahanhelp",
     "title": "VahanHelp",
-    "client": "VahanHelp",
+    "client": "VahanHelp Pvt. Ltd. (my employer)",
+    "type": "employment",
     "year": "",
     "category": "Web Platform",
     "summary": "A digital automotive service platform that makes challan payments, RC transfer and RTO services simple, fast and transparent.",
-    "colors": ["#328BF0", "#facc15"],
+    "colors": [
+      "#328BF0",
+      "#facc15"
+    ],
     "cover": "/projects/vahanhelp.jpg",
     "url": "https://www.vahanhelp.in/",
-    "role": "Design & development",
-    "stack": ["React", "Vite", "Tailwind CSS", "React Router", "Firebase", "Razorpay", "EmailJS", "AWS CloudFront"],
+    "role": "Software Engineer — full-stack build: frontend, REST APIs, payments & AWS deployment",
+    "stack": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Razorpay",
+      "AWS"
+    ],
     "challenge": "Vehicle documentation and RTO processes are slow and confusing for most vehicle owners — from checking and paying traffic challans to transferring an RC — with little clarity on what each service involves or costs.",
-    "solution": "We built a fast, user-friendly platform that brings vehicle services, challan checking and payment, Parivahan Mitra services and RTO assistance together in one place, with transparent service information, online payments and quick support via WhatsApp.",
+    "solution": "As a software engineer at VahanHelp, I built a fast, user-friendly platform that brings vehicle services, challan checking and payment, Parivahan Mitra services and RTO assistance together in one place — with secure REST APIs, role-based access, Razorpay payments and quick support via WhatsApp. This is employment work, not a Codelyne client project.",
     "features": [
       "Traffic challan check & online payment",
       "RC transfer & RTO assistance",
@@ -24,25 +37,45 @@
       "Mobile-first, SEO-friendly pages"
     ],
     "results": [
-      { "value": "30k+", "label": "customers served on the platform" },
-      { "value": "4.9★", "label": "customer rating" },
-      { "value": "Pan-India", "label": "RTO & RC transfer support" }
+      {
+        "value": "30k+",
+        "label": "customers served by VahanHelp"
+      },
+      {
+        "value": "4.9★",
+        "label": "VahanHelp customer rating"
+      },
+      {
+        "value": "Pan-India",
+        "label": "RTO & RC transfer support"
+      }
     ]
   },
   {
     "slug": "pink-vila-restaurant",
     "title": "Pink Vila",
     "client": "Pink Vila Restaurant, Jaunpur",
+    "type": "demo",
     "year": "",
     "category": "Restaurant Website",
     "summary": "A modern, responsive website for a family restaurant in Jaunpur — menu, ambience, reviews and table reservations in one place.",
-    "colors": ["#d85f89", "#a83d64"],
+    "colors": [
+      "#d85f89",
+      "#a83d64"
+    ],
     "cover": "/projects/pink-vila.jpg",
     "url": "https://pink-villa-seven.vercel.app/",
-    "role": "Design & development",
-    "stack": ["React", "Vite", "Tailwind CSS", "React Router", "Google Maps", "Vercel"],
+    "role": "Full build — design & frontend",
+    "stack": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Google Maps",
+      "Vercel"
+    ],
     "challenge": "Pink Vila needed an online home that captures its signature pink-themed ambience and lets customers explore the full menu, find the restaurant and book a table without having to call first.",
-    "solution": "We designed and built an elegant, mobile-responsive website with a complete digital menu, featured dishes, a food and ambience gallery, customer reviews, Google Maps directions, one-tap call and WhatsApp, and a table reservation request flow.",
+    "solution": "I designed and built a concept website for the restaurant: a complete digital menu, featured dishes, a food and ambience gallery, customer reviews, Google Maps directions, one-tap call and WhatsApp, and a table reservation request flow.",
     "features": [
       "Complete digital menu with categories & prices",
       "Featured dishes & food gallery",
@@ -53,26 +86,32 @@
       "Table reservation requests",
       "Social media integration"
     ],
-    "results": [
-      { "value": "4.8★", "label": "rating from 1,216+ Google reviews" },
-      { "value": "1 tap", "label": "to call, WhatsApp or get directions" },
-      { "value": "100%", "label": "mobile-responsive design" }
-    ]
+    "results": []
   },
   {
     "slug": "the-olive-table",
     "title": "The Olive Table",
     "client": "The Olive Table, Jaunpur",
+    "type": "demo",
     "year": "",
     "category": "Restaurant & Hospitality",
     "summary": "A modern, elegant restaurant website with a premium sage-green and cream aesthetic — menu, gallery, reviews and table reservations in one place.",
-    "colors": ["#56704a", "#c9d8bf"],
+    "colors": [
+      "#56704a",
+      "#c9d8bf"
+    ],
     "cover": "/projects/the-olive-table.jpg",
     "url": "https://the-olive-table-omega.vercel.app/",
-    "role": "Design & development",
-    "stack": ["React", "React Router", "Tailwind CSS", "Google Maps", "Vercel"],
+    "role": "Full build — design & frontend",
+    "stack": [
+      "React",
+      "React Router",
+      "Tailwind CSS",
+      "Google Maps",
+      "Vercel"
+    ],
     "challenge": "The Olive Table needed an online presence that matches its calm, refined dining experience — one that lets guests explore the menu, see the food and interiors, and request a table easily from any device.",
-    "solution": "We designed and developed a modern, elegant restaurant website with a premium sage-green and cream aesthetic. It features an interactive digital menu, a food and interior gallery, customer reviews, restaurant information and table reservation requests — built with a focus on responsive design, intuitive navigation and a seamless experience across desktop and mobile.",
+    "solution": "I designed and developed a concept website with a premium sage-green and cream aesthetic. It features an interactive digital menu, a food and interior gallery, customer reviews, restaurant information and table reservation requests — built with a focus on responsive design, intuitive navigation and a seamless experience across desktop and mobile.",
     "features": [
       "Elegant, responsive UI/UX design",
       "Interactive digital menu",
@@ -83,34 +122,41 @@
       "One-tap call, WhatsApp & directions",
       "Mobile-friendly navigation"
     ],
-    "results": [
-      { "value": "4.3★", "label": "rating from 303+ Google reviews" },
-      { "value": "1 tap", "label": "to call, WhatsApp or get directions" },
-      { "value": "100%", "label": "mobile-responsive design" }
-    ]
+    "results": []
   },
   {
     "slug": "veloura",
     "title": "Veloura",
-    "client": "Veloura",
+    "client": "A fictional luxury brand (self-initiated)",
+    "type": "demo",
     "year": "",
     "category": "Luxury Fashion E-commerce",
     "summary": "A premium fashion e-commerce website delivering an elegant, seamless online shopping experience for a modern luxury brand.",
-    "colors": ["#8a6f55", "#e9e1d6"],
+    "colors": [
+      "#8a6f55",
+      "#e9e1d6"
+    ],
     "cover": "/projects/veloura.jpg",
     "url": "https://veloura-nine-iota.vercel.app/",
-    "role": "Design & development",
-    "stack": ["Next.js", "React", "Tailwind CSS", "Lucide Icons", "Vercel"],
-    "challenge": "A modern luxury fashion brand needed a digital storefront that feels as refined as its collections — presenting products with sophistication while keeping shopping simple and seamless.",
-    "solution": "We designed and developed Veloura, a premium fashion e-commerce website with curated collections of menswear, womenswear and accessories. Minimalist aesthetics meet sophisticated product presentation, with best-selling products, a brand story section, newsletter subscriptions, and dedicated shopping and customer support pages.",
+    "role": "Full build — design, frontend & backend",
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Vercel"
+    ],
+    "challenge": "A concept brief: a luxury fashion brand needs a digital storefront that feels as refined as its collections — presenting products with sophistication while keeping shopping simple and seamless.",
+    "solution": "I designed and built Veloura end to end as a full-stack demo store: curated menswear, womenswear and accessories collections, a filterable catalog, cart and wishlist, a complete checkout flow, customer accounts, and a separate admin dashboard for orders, products and live sales stats.",
     "features": [
       "Curated menswear, womenswear & accessories collections",
-      "Minimalist, sophisticated product presentation",
-      "Best-selling products showcase",
-      "Brand story section",
-      "Newsletter subscriptions",
-      "Dedicated shop & customer support pages",
-      "Search, wishlist & shopping cart",
+      "Filterable, sortable product catalog with galleries",
+      "Cart & wishlist",
+      "Checkout flow (payments are UI only)",
+      "Customer accounts with order history & saved addresses",
+      "Admin dashboard for orders, products & customers",
+      "JWT sessions in httpOnly cookies, bcrypt-hashed passwords",
       "Fully responsive storefront"
     ],
     "results": []

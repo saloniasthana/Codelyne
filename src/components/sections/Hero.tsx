@@ -78,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.6, ease }}
           className="mt-8 max-w-xl text-lg leading-relaxed text-muted md:text-xl"
         >
-          We build modern, responsive websites and web applications that help businesses showcase their
+          I build modern, responsive websites and web applications that help businesses showcase their
           services, build trust, and connect with customers.
         </motion.p>
 
@@ -103,7 +103,7 @@ export default function Hero() {
               href="#work"
               className="glass inline-flex h-14 items-center gap-2 rounded-full px-8 font-medium transition hover:border-c2/50"
             >
-              View Our Work
+              View My Work
             </SectionLink>
           </Magnetic>
         </motion.div>

@@ -1,9 +1,26 @@
 import data from "@/content/projects.json";
 
+/** client = paid Codelyne work · demo = concept/sample build · employment = built in a job */
+export type ProjectType = "client" | "demo" | "employment";
+
+export const projectTypeLabel: Record<ProjectType, string> = {
+  client: "Client project",
+  demo: "Demo / Concept Project",
+  employment: "Employment work",
+};
+
+/** Heading for the `client` fact on the case study */
+export const clientFactLabel: Record<ProjectType, string> = {
+  client: "Client",
+  demo: "Concept for",
+  employment: "Employer",
+};
+
 export type Project = {
   slug: string;
   title: string;
   client: string;
+  type: ProjectType;
   /** Leave "" to hide */
   year: string;
   category: string;
@@ -16,6 +33,7 @@ export type Project = {
   coverPosition?: string;
   /** Optional live link */
   url: string;
+  /** Exactly what I did on the project */
   role: string;
   stack: string[];
   challenge: string;

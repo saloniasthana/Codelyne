@@ -191,8 +191,8 @@ export default function Contact() {
                   </motion.span>
                   <h3 className="font-display mt-6 text-3xl font-semibold">Almost done!</h3>
                   <p className="mt-3 max-w-sm text-muted">
-                    We&apos;ve opened WhatsApp with your enquiry ready. Just tap <strong className="text-fg">Send</strong> and
-                    we&apos;ll get back to you within one working day.
+                    I&apos;ve opened WhatsApp with your enquiry ready. Just tap <strong className="text-fg">Send</strong> and
+                    I&apos;ll get back to you within one working day.
                   </p>
                   <a
                     href={waUrl}
@@ -238,7 +238,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={4}
-                  placeholder="Tell us about your project, goals and timeline…"
+                  placeholder="Tell me about your project, goals and timeline…"
                   className={`${field} resize-none`}
                 />
               </label>

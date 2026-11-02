@@ -21,7 +21,7 @@ export default function Deliver() {
   return (
     <section className="py-16 sm:py-20">
       <div className="container-x">
-        <SectionHeading eyebrow="What we deliver" title="Quality built into every project." />
+        <SectionHeading eyebrow="What I deliver" title="Quality built into every project." />
 
         {/* gap-px over a line-coloured background draws even dividers at every column count */}
         <Reveal delay={0.1} className="mt-12">

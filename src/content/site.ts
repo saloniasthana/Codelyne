@@ -9,22 +9,34 @@ export const site = {
     "Codelyne transforms business ideas into modern websites, web applications and digital solutions — designed with care, engineered to perform.",
 
   // TODO: replace with your real contact details
-  email: "hello@codelyne.in",
+  email: "saloniasthana01@gmail.com",
   whatsapp: "918303909018", // country code (91) + number, digits only
   location: "India · Working with clients worldwide",
 
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/" },
-    { label: "GitHub", href: "https://github.com/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/saloni-asthana-ba672a228/" },
+    { label: "GitHub", href: "https://github.com/saloniasthana" },
     { label: "Instagram", href: "https://www.instagram.com/" },
   ],
 
   nav: [
+    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Work", href: "#work" },
     { label: "Process", href: "#process" },
     { label: "Stack", href: "#stack" },
     { label: "Contact", href: "#contact" },
+  ],
+};
+
+// The person behind the brand — shown in the About section
+export const founder = {
+  name: "Saloni Asthana",
+  role: "Full-stack developer",
+  portfolio: "https://saloniportfolio-seven.vercel.app/",
+  bio: [
+    "I'm Saloni Asthana, the developer behind Codelyne. I plan, design and build every project myself — from the first wireframe to the deployed site.",
+    "I work across the full stack, from interface design to backend and deployment. Codelyne is how I help businesses get a website that works for them.",
   ],
 };
 
@@ -58,7 +70,7 @@ export const services = [
 export const processSteps = [
   {
     title: "Idea",
-    text: "We start with your business goal, users and constraints — and turn them into a clear, scoped plan.",
+    text: "I start with your business goal, users and constraints — and turn them into a clear, scoped plan.",
   },
   {
     title: "Design",
@@ -74,7 +86,7 @@ export const processSteps = [
   },
 ];
 
-// "What We Deliver" strip
+// "What I Deliver" strip
 export const deliverables = [
   { title: "Modern UI", text: "Clean, professional & business-focused designs" },
   { title: "Responsive First", text: "Seamless experience across mobile, tablet & desktop" },
@@ -82,7 +94,7 @@ export const deliverables = [
   { title: "Built for Growth", text: "Scalable websites designed around your business goals" },
 ];
 
-// "Why Choose Codelyne?" section — how we work, no claims we can't back up
+// "Why Choose Codelyne?" section — how I work, no claims I can't back up
 export const whyChoose = [
   {
     title: "Clear communication",

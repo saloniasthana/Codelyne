@@ -27,7 +27,7 @@ export default function WhyChoose() {
           <SectionHeading
             eyebrow="Why Codelyne"
             title="Why choose Codelyne?"
-            text="We keep things simple: understand your goals, build exactly what your project needs, and keep you in the loop from first call to launch."
+            text="I keep things simple: understand your goals, build exactly what your project needs, and keep you in the loop from first call to launch."
           />
           <Reveal delay={0.2}>
             <Magnetic className="mt-10">

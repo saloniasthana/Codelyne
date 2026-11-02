@@ -8,7 +8,8 @@ import { use3DQuality, useInView } from "@/components/three/useWebGL";
 import Logo from "@/components/ui/Logo";
 import SectionLink from "@/components/ui/SectionLink";
 
-// Physics + 3D are only downloaded once the visitor scrolls near the footer
+// Physics + 3D load in the background as soon as the page has finished loading,
+// so the pile has settled long before anyone scrolls down to the footer
 const FooterPlayground = dynamic(() => import("@/components/three/FooterPlayground"), { ssr: false });
 
 const linkClass = "text-muted transition-colors hover:text-fg";
@@ -28,13 +29,27 @@ function Playground() {
   const { theme } = useApp();
   const quality = use3DQuality();
   const stage = useRef<HTMLDivElement>(null);
-  const near = useInView(stage, "400px");
   const visible = useInView(stage, "0px");
   const [load, setLoad] = useState(false);
 
+  // Start once the page itself has loaded and the browser is idle, so the hero
+  // and above-the-fold content are never slowed down by it
   useEffect(() => {
-    if (near) setLoad(true);
-  }, [near]);
+    let idle = 0;
+    let timer = 0;
+    const start = () => {
+      // Safari has no requestIdleCallback
+      if (typeof window.requestIdleCallback === "function") idle = window.requestIdleCallback(() => setLoad(true), { timeout: 2000 });
+      else timer = setTimeout(() => setLoad(true), 300) as unknown as number;
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => {
+      window.removeEventListener("load", start);
+      if (idle) window.cancelIdleCallback?.(idle);
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div ref={stage} className="relative h-[clamp(220px,38vw,560px)] select-none overflow-hidden">

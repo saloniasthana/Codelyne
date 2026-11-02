@@ -22,8 +22,8 @@ export default function Stack() {
         <div>
           <SectionHeading
             eyebrow="Tech stack"
-            title="Modern tools, chosen for the job."
-            text="We build on proven, open technology — so your product is fast today and easy to grow tomorrow. Hover a tool to see why we use it."
+            title="Modern tools, chosen for your project."
+            text="I build on proven, open technology — so your product is fast today and easy to grow tomorrow. Every tool is picked to suit what your project needs."
           />
           <Reveal delay={0.2}>
             <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">

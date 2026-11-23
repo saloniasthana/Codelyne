@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { site } from "@/content/site";
@@ -75,13 +76,13 @@ export default function Navbar() {
             <ThemeToggle />
             <div className="hidden sm:block">
               <Magnetic>
-                <SectionLink
-                  href="#contact"
+                <Link
+                  href="/book-a-call/"
                   className="bg-fg text-bg inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-full px-5 text-sm font-medium transition hover:opacity-90"
                 >
-                  Start a project
+                  Book a Discovery Call
                   <span aria-hidden>→</span>
-                </SectionLink>
+                </Link>
               </Magnetic>
             </div>
             <button

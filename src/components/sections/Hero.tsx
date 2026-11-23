@@ -103,7 +103,7 @@ export default function Hero() {
               href="#work"
               className="glass inline-flex h-14 items-center gap-2 rounded-full px-8 font-medium transition hover:border-c2/50"
             >
-              View My Work
+              View Our Work
             </SectionLink>
           </Magnetic>
         </motion.div>

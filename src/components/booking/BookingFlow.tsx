@@ -303,7 +303,7 @@ export default function BookingFlow() {
     go("review");
   };
 
-  const whatsapp = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hi Codelyne! I'd like to book a discovery call.")}`;
+  const whatsapp = `https://wa.me/${booking.whatsapp || site.whatsapp}?text=${encodeURIComponent("Hi Codelyne! I'd like to book a discovery call.")}`;
 
   const summary = [
     { label: "Meeting", value: `Discovery call · ${booking.durationMinutes} minutes` },

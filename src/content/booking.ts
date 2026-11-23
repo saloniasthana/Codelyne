@@ -9,6 +9,12 @@ export const CALENDLY_URL = (process.env.NEXT_PUBLIC_CALENDLY_URL ?? "").trim();
 export const calendlyConfigured = /^https:\/\/calendly\.com\/[^/\s]+\/[^/\s]+/.test(CALENDLY_URL);
 
 export const booking = {
+  /**
+   * WhatsApp number used only on this booking page ("Having trouble?" and
+   * "Didn't get the email?" links). Country code + number, digits only,
+   * e.g. "919876543210". Leave "" to use the main number from site.ts.
+   */
+  whatsapp: "6306530479",
   title: "Let's discuss your next big idea.",
   subtitle:
     "Schedule a free discovery call with our team. Tell us about your business, goals and project requirements, and let's explore how we can bring your vision to life.",

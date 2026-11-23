@@ -65,6 +65,33 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  // Re-measure scroll animations whenever the page height changes after load
+  // (late images/fonts, content updates). Otherwise pinned sections like Process
+  // keep stale start positions and pin on top of the section above them.
+  useEffect(() => {
+    let timer = 0;
+    let lastHeight = document.body.scrollHeight;
+    const refresh = () => {
+      clearTimeout(timer);
+      timer = window.setTimeout(() => ScrollTrigger.refresh(), 150);
+    };
+    const ro = new ResizeObserver(() => {
+      // ignore changes caused by ScrollTrigger's own pin spacers settling
+      const h = document.body.scrollHeight;
+      if (Math.abs(h - lastHeight) < 2) return;
+      lastHeight = h;
+      refresh();
+    });
+    ro.observe(document.body);
+    document.fonts?.ready.then(refresh);
+    window.addEventListener("load", refresh);
+    return () => {
+      ro.disconnect();
+      clearTimeout(timer);
+      window.removeEventListener("load", refresh);
+    };
+  }, []);
+
   // On client-side navigation: jump to the top (or to "#section" when linking
   // into the home page) and let ScrollTrigger re-measure the new layout
   useEffect(() => {

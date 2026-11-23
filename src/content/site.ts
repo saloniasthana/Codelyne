@@ -9,7 +9,7 @@ export const site = {
     "Codelyne transforms business ideas into modern websites, web applications and digital solutions — designed with care, engineered to perform.",
 
   // TODO: replace with your real contact details
-  email: "saloniasthana01@gmail.com",
+  email: "codelyne.official@gmail.com",
   whatsapp: "918303909018", // country code (91) + number, digits only
   location: "India · Working with clients worldwide",
 
@@ -29,16 +29,31 @@ export const site = {
   ],
 };
 
-// The person behind the brand — shown in the About section
-export const founder = {
-  name: "Saloni Asthana",
-  role: "Full-stack developer",
-  portfolio: "https://saloniportfolio-seven.vercel.app/",
-  bio: [
-    "I'm Saloni Asthana, the developer behind Codelyne. I plan, design and build every project myself — from the first wireframe to the deployed site.",
-    "I work across the full stack, from interface design to backend and deployment. Codelyne is how I help businesses get a website that works for them.",
+// About section: company introduction, mission & vision, differentiators
+export const about = {
+  title: "We turn ideas into digital experiences.",
+  intro: [
+    "Codelyne is a technology and digital development agency focused on helping businesses build a strong digital presence through innovative, reliable, and scalable solutions.",
+    "We work with startups, entrepreneurs, and established businesses to transform ideas into meaningful digital experiences. From modern websites and custom web applications to e-commerce platforms and tailored software solutions, we combine creativity, technology, and strategic thinking to deliver results that matter.",
   ],
+  mission:
+    "To empower businesses with accessible, innovative, and high-quality digital solutions that simplify operations, strengthen their online presence, and support long-term growth.",
+  vision: "To become a trusted global technology partner, helping businesses worldwide grow and evolve through technology.",
+  different: [
+    { title: "Client-Focused Approach", text: "Every project starts with understanding your business goals." },
+    { title: "Quality-Driven Development", text: "We focus on performance, usability, security, and scalability." },
+    { title: "Transparent Collaboration", text: "Clear communication throughout every stage of development." },
+    {
+      title: "Long-Term Partnership",
+      text: "Our relationship doesn't end at launch. We believe in continuous improvement and support.",
+    },
+  ],
+  closing: {
+    lead: "At Codelyne, we don't just build websites.",
+    highlight: "We build digital solutions that move businesses forward.",
+  },
 };
+
 
 export const services = [
   {
